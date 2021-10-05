@@ -1,0 +1,15 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <h1>Computer List</h1>
+    <div class="computers">
+      {% for computer in computers %}
+        <div class="computer">
+          <h2><a href="#">{{ computer.type }} - {{ computer.brand }} - {{ computer.model }}</a></h2>
+          <p>CPU: {{ computer.cpu }}</p>
+          <p>RAM: {{ computer.ram }}</p>
+          <p>HDD: {{ computer.harddisk }}</p>
+        </div>
+      {% endfor %}
+    </div>
+{% endblock %}
