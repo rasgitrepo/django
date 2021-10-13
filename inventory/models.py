@@ -16,7 +16,9 @@ TYPE = (
 ISSUE_BY = (
     ('Diaw', 'Diaw'),
     ('Jonathan', 'Jonathan'),
-    ('Jo', 'Jo')
+    ('Jo', 'Jo'),
+    ('Em', 'Em Kanapot')
+
 )
 
 class Computer(models.Model):
@@ -35,17 +37,19 @@ class Computer(models.Model):
     computer_name = models.CharField(max_length=150, null=True,  blank=True)
     prev_tag = models.CharField(max_length=150, null=True,  blank=True)
     asset_number = models.CharField(max_length=150, null=True,  blank=True)
-    status = models.CharField(max_length=150, null=True,  blank=True)
     note = models.TextField()
     active = models.BooleanField(default=True)
-    createdAt = models.DateTimeField(default=now, null=True, blank=True)
-    updatedAt = models.DateTimeField(default=now, null=True,  blank=True)
+    created_at = models.DateTimeField(default=now)
+    updated_at = models.DateTimeField(default=now)
 
     def __str__(self):
         return self.brand + ' ' + self.model + ' (' + self.tag_number + ')'
     
 
 class Borrow(models.Model):
+    
+    computer = models.ForeignKey(Computer, on_delete=models.SET_NULL, null=True)
+    staff = models.ForeignKey(Staff, on_delete=models.SET_NULL, null=True)
     borrow_date = models.DateField(null=True, blank=True)
     return_date = models.DateField(null=True, blank=True)
     accessories = models.CharField(max_length=150, blank=True, null=True)
@@ -53,6 +57,3 @@ class Borrow(models.Model):
     note = models.TextField(null=True, blank=True)
     created_at = models.DateTimeField(default=now)
     updated_at = models.DateTimeField(default=now)
-
-  
-     

@@ -1,14 +1,14 @@
 from django.contrib import admin
 from django.conf.urls import url, include
-from .views import home, about
+from . import views
 #from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
  
+    url('home/', views.home),
     url('admin/', admin.site.urls),
-    url('computer/', include('computer.urls')),
-    url('about/', about),
-    url('', home),
+    url('inventory/', include('inventory.urls')),
+    url('about/', views.about),
 ]   
 
 #urlpatterns += staticfiles_urlpatterns()
