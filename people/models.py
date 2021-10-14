@@ -28,3 +28,5 @@ class People(models.Model):
     def __str__(self):
         return self.firstname +  ' ' + str(self.lastname) + ' (' +str(self.id) + ')'
     
+    class Meta:
+       ordering = ('firstname',)

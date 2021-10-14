@@ -13,12 +13,13 @@ class ComputerAdmin(admin.ModelAdmin):
     search_fields = ['tag_number','prev_tag', 'brand', 'model', 'serial_number' ]
  
 class BorrowAdmin(admin.ModelAdmin):
-    list_display = ('pk','staff','borrow_date','return_date','note')
-    list_filter = [ 'return_date', 'computer' ]
-    search_fields = ['pk','staff_id', 'computer_id']
+    list_display = ('computer','staff','note','borrow_date','return_date' )
+    list_filter = [ 'return_date', 'computer__type' ]
+    search_fields = ['computer_id', 'people__firstname', 'people__lastname']
 
 class StaffAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'people_id', 'date_start','job_title')
+    list_display = ('pk', 'people', 'date_start','job_title')
+    search_fields = ['firstname', 'lastname', 'nickname']
 
 class PeopleAdmin(admin.ModelAdmin):
     list_display = ('pk','firstname','lastname')

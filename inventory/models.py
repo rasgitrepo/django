@@ -45,6 +45,9 @@ class Computer(models.Model):
     def __str__(self):
         return self.brand + ' ' + self.model + ' (' + self.tag_number + ')'
     
+    class Meta:
+       ordering = ('brand','model')
+      
 
 class Borrow(models.Model):
     
@@ -57,3 +60,4 @@ class Borrow(models.Model):
     note = models.TextField(null=True, blank=True)
     created_at = models.DateTimeField(default=now)
     updated_at = models.DateTimeField(default=now)
+
