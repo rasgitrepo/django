@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'people.apps.PeopleConfig',
     'staff.apps.StaffConfig',
     'inventory.apps.InventoryConfig',
+    'job.apps.JobConfig',
 ]
 
 MIDDLEWARE = [
