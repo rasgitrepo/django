@@ -1,24 +1,19 @@
 from django.db import models
 from staff .models import Staff
 
-TYPE = (
-    ('Create New Staff','Create New Staff'),
-    ('New Staff Email','New Staff Email'),
-    ('New Staff PowerSchool','New Staff PowerSchool'),
-    ('Reset Email Password','Reset Email Password'),
-    ('Reset PowerSchool Password','Reset PowerSchool Password'),
-    
-)
-
 # Create your models here.
 class JobType(models.Model):
     job_type = models.CharField(max_length=100, blank=True, null=True)
     parent_type = models.CharField(max_length=100, blank=True, null=True)
     description = models.TextField()
+    class Meta:
+        verbose_name_plural = "Job Type"
 
 class JobStatus(models.Model):
     job_status = models.CharField(max_length=100, blank=True, null=True)
     description = models.TextField(null=True, blank=True)
+    class Meta:
+        verbose_name_plural = "Job Status"
 
 class Job(models.Model):
     job_type = models.ForeignKey(JobType, on_delete=models.SET_NULL, blank=True, null=True)
@@ -33,6 +28,8 @@ class Job(models.Model):
 class JobAction(models.Model):
     job_action = models.CharField(max_length=150, null=True)
     description = models.CharField(max_length=255, null=True)
+    class Meta:
+        verbose_name_plural = "Job Action"
 
 class jobActionLog(models.Model):
     job = models.ForeignKey(Job, on_delete=models.CASCADE)

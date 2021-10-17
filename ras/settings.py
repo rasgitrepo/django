@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     'people.apps.PeopleConfig',
     'staff.apps.StaffConfig',
+    'student.apps.StudentConfig',
     'inventory.apps.InventoryConfig',
     'job.apps.JobConfig',
 ]
