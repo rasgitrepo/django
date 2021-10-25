@@ -6,14 +6,23 @@ class JobType(models.Model):
     job_type = models.CharField(max_length=100, blank=True, null=True)
     parent_type = models.CharField(max_length=100, blank=True, null=True)
     description = models.TextField()
+
+    def __str__(self):
+        return self.job_type
+        
+    
     class Meta:
-        verbose_name_plural = "Job Type"
+        verbose_name_plural = "Job Types"
 
 class JobStatus(models.Model):
     job_status = models.CharField(max_length=100, blank=True, null=True)
     description = models.TextField(null=True, blank=True)
+
+    def __str__(self):
+        return self.job_status
+    
     class Meta:
-        verbose_name_plural = "Job Status"
+        verbose_name_plural = "Job Statuses"
 
 class Job(models.Model):
     job_type = models.ForeignKey(JobType, on_delete=models.SET_NULL, blank=True, null=True)
@@ -25,11 +34,19 @@ class Job(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.job_title
+    
+
 class JobAction(models.Model):
     job_action = models.CharField(max_length=150, null=True)
-    description = models.CharField(max_length=255, null=True)
+    description = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.job_action
+
     class Meta:
-        verbose_name_plural = "Job Action"
+        verbose_name_plural = "Job Actions"
 
 class jobActionLog(models.Model):
     job = models.ForeignKey(Job, on_delete=models.CASCADE)

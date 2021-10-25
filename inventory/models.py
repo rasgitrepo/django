@@ -61,3 +61,16 @@ class Borrow(models.Model):
     created_at = models.DateTimeField(default=now)
     updated_at = models.DateTimeField(default=now)
 
+class Location(models.Model):
+    location = models.CharField(max_length=150, null=True, blank=True)
+    floor = models.CharField(max_length=80, null=True, blank=True)
+    building = models.CharField(max_length=100, null=True, blank=True)
+
+class Maintenance(models.Model):
+    computer = models.ForeignKey(Computer, on_delete=models.SET_NULL, null=True)
+    title = models.CharField(max_length=150, null=True, blank=True)
+    description = models.TextField()
+    requester = models.ForeignKey(Staff, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(default=now)
+    updated_at = models.DateTimeField(default=now)
+

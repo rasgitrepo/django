@@ -16,7 +16,7 @@ class Staff(models.Model):
 
     def __str__(self):
 
-            return self.people.firstname+' '+str(self.people.lastname)
+            return self.people.firstname+' (' + str(self.people.nickname) + ') ' +str(self.people.lastname)
 
 class StaffRole(models.Model):
     staff_role = models.CharField(max_length=150, null=True, blank=True)
