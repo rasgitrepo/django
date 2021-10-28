@@ -21,6 +21,7 @@ class CourseAdmin(admin.ModelAdmin):
 class LinkStudentCourseAdmin(admin.ModelAdmin):
     list_display = ('pk', 'student','course', 'from_date', 'to_date')
     list_display_links = ('pk', 'student','course', 'from_date', 'to_date')
+    list_filter = [ 'course' ]
     ordering = ['pk']
 
 class StudentStatusAdmin(admin.ModelAdmin):

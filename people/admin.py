@@ -14,9 +14,11 @@ class FamilyAdmin(admin.ModelAdmin):
     search_fields = ['family']
 
 class LinkFamilyMemberAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'family', 'people', 'role')
+    list_display = ('pk', 'family', 'people', 'role', 'family')
+    list_display_links = ('pk', 'family', 'people', 'role')
     search_fields = ['family__family' ]
-    #list_display_links = ('pk', 'family__family', 'people', 'role')
+    list_filter = [ 'family__family', 'people' ]
+    
 
 admin.site.register(People, PeopleAdmin)
 admin.site.register(Family,FamilyAdmin)
