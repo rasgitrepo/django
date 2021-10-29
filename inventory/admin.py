@@ -8,6 +8,7 @@ admin.site.site_header = 'RAS Management Information System'
 # FORMAT MODEL RECORDS FORMAT
 class ComputerAdmin(admin.ModelAdmin):
     list_display = ('pk','brand','model', 'prev_tag', 'tag_number')
+    list_display_links = ('pk','brand','model', 'prev_tag', 'tag_number')
     list_filter = ['type', 'brand']
     search_fields = ['tag_number','prev_tag', 'brand', 'model', 'serial_number' ]
  

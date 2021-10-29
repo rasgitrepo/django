@@ -6,7 +6,7 @@ class LocationType(models.Model):
     description = models.TextField(blank=True)
 
     def __str__(self):
-        return self.localtion_type
+        return self.location_type
     class Meta:
         ordering = ['location_type']    
 

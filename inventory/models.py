@@ -1,5 +1,6 @@
 from django.db import models
 from staff .models import Staff
+from location .models import Location
 from django.utils.timezone import now
 
 # Create your models here.
@@ -30,7 +31,8 @@ class Computer(models.Model):
     harddisk = models.CharField(max_length=150, null=True,  blank=True)
     serial_number = models.CharField(max_length=150, null=True,  blank=True)
     tag_number = models.CharField(max_length=150, null=True,  blank=True)
-    location = models.CharField(max_length=150, null=True,  blank=True)
+    room = models.CharField(max_length=150, null=True,  blank=True)
+    location = models.ForeignKey(Location, on_delete=models.SET_NULL, null=True)
     owner = models.CharField(max_length=150, null=True,  blank=True)
     admin_user = models.CharField(max_length=150, null=True,  blank=True)
     admin_pass = models.CharField(max_length=150, null=True,  blank=True)

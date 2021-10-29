@@ -12,6 +12,7 @@ class Staff(models.Model):
     note = models.TextField(null=True, blank=True)
     updated_at = models.DateTimeField(default=now)
     created_at = models.DateTimeField(default=now)
+    active = models.BooleanField(default=1)
     
 
     def __str__(self):
