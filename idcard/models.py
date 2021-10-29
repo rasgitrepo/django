@@ -1,6 +1,10 @@
 from django.db import models
 from people .models import People
 from staff .models import Staff
+import barcode
+from barcode.writer import ImageWriter
+from io import BytesIO
+from django.core.files import File
 
 # Create your models here.
 class IDType(models.Model):
@@ -35,10 +39,17 @@ class IDCard(models.Model):
     issued_by = models.ForeignKey(Staff, on_delete=models.SET_NULL, null=True, related_name='issued_by')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
+    barcode = models.ImageField(upload_to='images/', blank=True, null=True)
     
-def __str__(self):
-    return self.people
+    def __str__(self):
+        return str(self.people)
 
-class Meta:
-    ordering = ('people_lastname', 'people_lastname')    
-    
+    def save(self, *args, **kwargs):
+        EAN = barcode.get_barcode_class('ean13')   
+        ean = EAN(f'{self.card_number}', writer=ImageWriter())
+        buffer = BytesIO()
+        ean.write(buffer)
+        self.barcode.save('barcode.png', File(buffer), save=False)
+        return super().save(*args, **kwargs)
+
+ 
