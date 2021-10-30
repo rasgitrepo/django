@@ -28,6 +28,7 @@ class IDStatus(models.Model):
 
     class Meta:
         ordering = ['id_status']
+        verbose_name_plural = "ID Statuses"
 
 class IDCard(models.Model):
     people = models.ForeignKey(People, on_delete=models.CASCADE, related_name='card_holder')

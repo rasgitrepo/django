@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'job.apps.JobConfig',
     'idcard.apps.IdcardConfig',
     'location.apps.LocationConfig',
+    'facility.apps.FacilityConfig',
 ]
 
 MIDDLEWARE = [
