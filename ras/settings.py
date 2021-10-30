@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'idcard.apps.IdcardConfig',
     'location.apps.LocationConfig',
     'facility.apps.FacilityConfig',
+    'visa.apps.VisaConfig',
 ]
 
 MIDDLEWARE = [

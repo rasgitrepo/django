@@ -55,6 +55,10 @@ class LinkStudentCourse(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        ordering = ['student']    
+        verbose_name_plural = "Add/Remove Student's course"
+
 
 LOGTYPE = (
     ('Dropoff', 'Dropoff'),
