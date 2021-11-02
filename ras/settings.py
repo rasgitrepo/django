@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'location.apps.LocationConfig',
     'facility.apps.FacilityConfig',
     'visa.apps.VisaConfig',
+    'finance.apps.FinanceConfig',
+    'eca.apps.EcaConfig',
+    'contact.apps.ContactConfig',
 ]
 
 MIDDLEWARE = [
@@ -152,3 +155,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SITE_ID = 1
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+LOGIN_REDIRECT_URL = 'user-profile'
