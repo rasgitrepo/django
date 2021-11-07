@@ -1,5 +1,9 @@
 from django.contrib import admin
-from .models import LocationType, Location
+from .models import LocationType, Location, Building
+
+class BuildingAdmin(admin.ModelAdmin):
+    list_display=['pk','building', 'school']
+    list_display_links=['pk','building', 'school']
 
 class LocationTypeAdmin(admin.ModelAdmin):
     list_display = ['pk', 'location_type', 'description']
@@ -12,5 +16,6 @@ class LocationAdmin(admin.ModelAdmin):
     ordering = ['location']
 
 # Register your models here.
+admin.site.register(Building, BuildingAdmin)
 admin.site.register(LocationType, LocationTypeAdmin)
 admin.site.register(Location, LocationAdmin)

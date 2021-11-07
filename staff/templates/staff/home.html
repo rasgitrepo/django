@@ -1,0 +1,17 @@
+{% extends 'staff/base_layout.html' %}
+{% block content %}
+    <div class="content-section">
+      <div class="media">
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" height="150px">
+        <div class="media-body">
+          <h2 class="account-heading">Staff Home</h2>
+           
+        </div>
+      </div>
+      <!-- FORM HERE -->
+    </div>
+    <div>
+    <a href="/logout">Logout</a>
+    </div>
+{% endblock content %}
+

@@ -11,14 +11,16 @@ TYPE = (
     ('Tablet', 'Tablet'),
     ('Document Camera', 'Document Camera'),
     ('Projector', 'Projector'),
-    ('Printer', 'Printer'),    
+    ('Printer', 'Printer'), 
+    ('TV/SmartTV', 'TV/SmartTV'),   
 )
 
 ISSUE_BY = (
     ('Diaw', 'Diaw'),
     ('Jonathan', 'Jonathan'),
     ('Jo', 'Jo'),
-    ('Em', 'Em Kanapot')
+    ('Em', 'Em Kanapot'),
+    ('Glen', 'Glen'),
 
 )
 
@@ -45,7 +47,7 @@ class Computer(models.Model):
     updated_at = models.DateTimeField(default=now)
 
     def __str__(self):
-        return self.brand + ' ' + self.model + ' (' + self.tag_number + ')'
+        return str(self.brand) + ' ' + str(self.model) + ' (' + str(self.tag_number) + ')'
     
     class Meta:
        ordering = ('brand','model')

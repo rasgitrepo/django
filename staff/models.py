@@ -5,8 +5,8 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Staff(models.Model):
-    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
-    people = models.ForeignKey(People, on_delete=models.SET_NULL, null=True) 
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)    
+    people = models.ForeignKey(People, on_delete=models.CASCADE, null=True) 
     date_start = models.DateField(null=True, blank=True) 
     date_end = models.DateField(null=True, blank=True)
     job_title = models.CharField(max_length=150, null=True, blank=True)
@@ -47,7 +47,7 @@ class LinkStaffDepartment(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    image = models.ImageField(default='default.jpg', upload_to='profile_pics')
+    image = models.ImageField(default='default.png', upload_to='profile_pics')
 
     def __str__(self):
         return f'{self.user.username} Profile'
