@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Staff, Department, StaffRole, LinkStaffDepartment, Profile
+from .models import Staff, Department, StaffRole, LinkStaffDepartment
 
 class StaffAdmin(admin.ModelAdmin):
     list_display = ('people', 'pk', 'date_start','job_title')
@@ -21,13 +21,12 @@ class DepartmentAdmin(admin.ModelAdmin):
  
 class LinkStaffDepartmentAdmin(admin.ModelAdmin):
     list_display = ('pk','staff','department')
-    #search_fields = ['firstname', 'lastname', 'nickname']
-class ProfileAdmin(admin.ModelAdmin):
-    list_display=('pk','user')
+    search_fields = ['firstname', 'lastname', 'nickname']
+# class ProfileAdmin(admin.ModelAdmin):
+#     list_display=('pk','user')
 
 # Register your models here.
 admin.site.register(Staff, StaffAdmin)
 admin.site.register(StaffRole, StaffRoleAdmin)
 admin.site.register(Department, DepartmentAdmin) 
 admin.site.register(LinkStaffDepartment, LinkStaffDepartmentAdmin)
-admin.site.register(Profile,ProfileAdmin)

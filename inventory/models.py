@@ -5,13 +5,15 @@ from django.utils.timezone import now
 
 # Create your models here.
 TYPE = (
-    ('Laptop', 'Laptop'),
     ('All-in-one', 'All-in-one'),
     ('Desktop', 'Desktop'),
-    ('Tablet', 'Tablet'),
     ('Document Camera', 'Document Camera'),
-    ('Projector', 'Projector'),
+    ('Laptop', 'Laptop'),
+    ('Network','Network'),
     ('Printer', 'Printer'), 
+    ('Projector', 'Projector'),
+    ('Server', 'Server'),
+    ('Tablet', 'Tablet'),
     ('TV/SmartTV', 'TV/SmartTV'),   
 )
 
